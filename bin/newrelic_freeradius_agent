@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-require 'bundler/setup'
 require 'newrelic_plugin'
 
 module FreeradiusAgent
@@ -127,7 +126,7 @@ module FreeradiusAgent
 
   end
 
-  NewRelic::Plugin::Config.config_file = File.dirname(__FILE__) + '/config/newrelic_plugin.yml'
+  NewRelic::Plugin::Config.config_file = '/etc/newrelic_freeradius_agent.yaml'
   NewRelic::Plugin::Setup.install_agent :freeradius_agent, self
 
   NewRelic::Plugin::Run.setup_and_run
